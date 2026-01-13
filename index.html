@@ -1,130 +1,1287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pankaj Maurya | Portfolio</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- AOS Animation CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Maurya | Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --text-color: #334155;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --shadow-light: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 20%);
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            z-index: -2;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 100px;
+            left: -50px;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            right: 20%;
+            animation: float 12s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .hero-content {
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-strong);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content .title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+            color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title .underline {
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: none;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--gradient-secondary);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            top: 0;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        /* Skills Section */
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Projects Section */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 15px;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 0.9;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Education Section */
+        .education-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .education-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--gradient-primary);
+            color: white;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            padding: 6rem 0 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.2rem;
+            border-radius: 10px;
+            min-width: 250px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 20px !important;
+                right: auto !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Pankaj Maurya</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero-section d-flex align-items-center">
-  <div class="container text-center" data-aos="fade-up">
-    <img src="images/profile.jpg" class="profile-img mb-3" alt="Pankaj Maurya">
-    <h1 class="fw-bold">Pankaj Maurya</h1>
-    <p class="lead">Full Stack Laravel Developer</p>
-    <a href="#projects" class="btn btn-primary mt-3">View My Work</a>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about" class="section-padding">
-  <div class="container" data-aos="fade-right">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      I am a Full Stack Laravel Developer with experience in building secure, scalable web applications using PHP, Laravel, MySQL, and JavaScript. I aim to grow as a software professional in a competitive environment.
-    </p>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills" class="section-padding bg-light">
-  <div class="container">
-    <h2 class="section-title text-center" data-aos="zoom-in">Skills</h2>
-    <div class="row mt-4">
-      <div class="col-md-3" data-aos="flip-left"><div class="skill-card">Frontend<br><span>HTML, CSS, Bootstrap, JS</span></div></div>
-      <div class="col-md-3" data-aos="flip-left"><div class="skill-card">Backend<br><span>PHP, Laravel, Java (Basic)</span></div></div>
-      <div class="col-md-3" data-aos="flip-left"><div class="skill-card">Database<br><span>MySQL, Firebase</span></div></div>
-      <div class="col-md-3" data-aos="flip-left"><div class="skill-card">Tools<br><span>Git, GitHub, VS Code</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Projects -->
-<section id="projects" class="section-padding">
-  <div class="container">
-    <h2 class="section-title text-center" data-aos="fade-up">Projects</h2>
-    <div class="row mt-4">
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="card project-card">
-          <img src="images/project1.jpg" class="card-img-top" alt="Project">
-          <div class="card-body">
-            <h5 class="card-title">Lawyer Management System</h5>
-            <p class="card-text">Laravel based case & client management system.</p>
-          </div>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Pankaj<span>Maurya</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="card project-card">
-          <img src="images/project2.jpg" class="card-img-top" alt="Project">
-          <div class="card-body">
-            <h5 class="card-title">Visitor Management</h5>
-            <p class="card-text">Secure visitor tracking and reporting system.</p>
-          </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
-      </div>
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="card project-card">
-          <img src="images/project3.jpg" class="card-img-top" alt="Project">
-          <div class="card-body">
-            <h5 class="card-title">Social Media Post Tool</h5>
-            <p class="card-text">Post creation & management platform.</p>
-          </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-avatar">
+                    <div class="avatar-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <h1>Pankaj Maurya</h1>
+                <p class="title">Full Stack Laravel Developer</p>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+                    Passionate developer specializing in Laravel, PHP, and modern web technologies. 
+                    I create efficient, scalable web applications with a focus on performance and security.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fas fa-code-branch"></i> View Projects
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Contact -->
-<section id="contact" class="section-padding bg-dark text-light">
-  <div class="container text-center" data-aos="fade-in">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: pankajmaurya24042003@gmail.com</p>
-    <p>Phone: +91 9336257465</p>
-    <p>Location: Lucknow, India</p>
-  </div>
-</section>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <h3 class="mb-3">Professional Profile</h3>
+                        <p>
+                            I am a dedicated Full Stack Laravel Developer with experience in building robust web applications. 
+                            My goal is to obtain a responsible position that utilizes my skills and provides opportunities 
+                            to grow both technically and managerially.
+                        </p>
+                        <p>
+                            As a fresh graduate, I'm eager to contribute to organizational goals while advancing my tech career 
+                            in a competitive environment. I specialize in Laravel, PHP, MySQL, and modern frontend technologies.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-download"></i> Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <h3 class="mb-3">Quick Facts</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="education-icon me-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Location</h6>
+                                        <p>Lucknow, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="education-icon me-3">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Email</h6>
+                                        <p>pankajmaurya24042003@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="education-icon me-3">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Education</h6>
+                                        <p>B.Tech (CSE) 2024-2027</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="education-icon me-3">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Experience</h6>
+                                        <p>1+ Years</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer class="text-center py-3">
-  <p>© 2026 Pankaj Maurya</p>
-</footer>
+    <!-- Experience Section -->
+    <section class="section bg-light" id="experience">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Work Experience</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="card">
+                        <div class="timeline-dot"></div>
+                        <h4 class="text-primary">Full Stack Laravel Developer</h4>
+                        <h5 class="mb-2">Life Infotech Solution, Lucknow</h5>
+                        <p class="text-muted mb-3"><i class="far fa-calendar me-2"></i>August 2025 – Present</p>
+                        <ul>
+                            <li>Designed, developed, and maintained web applications using Laravel, PHP, MySQL, and JavaScript</li>
+                            <li>Implemented RESTful APIs for seamless integration</li>
+                            <li>Optimized backend performance through caching, database indexing, and query optimization</li>
+                            <li>Ensured application security with Laravel's built-in authentication and authorization</li>
+                            <li>Implemented secure payment gateways (Razorpay) for e-commerce platforms</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="card">
+                        <div class="timeline-dot"></div>
+                        <h4 class="text-primary">PHP Laravel Intern</h4>
+                        <h5 class="mb-2">EuCoders Technologies Pvt Ltd, Lucknow</h5>
+                        <p class="text-muted mb-3"><i class="far fa-calendar me-2"></i>September 2024 - March 2025</p>
+                        <ul>
+                            <li>Worked on PHP Laravel projects, assisting in web application development</li>
+                            <li>Developed responsive user interfaces using HTML, CSS, Bootstrap and JavaScript</li>
+                            <li>Managed and optimized MySQL databases for improved performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <p class="section-subtitle animate-on-scroll">Here are some of my key projects showcasing my skills and expertise</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card project-card animate-on-scroll">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-eye"></i> View Demo
+                                </a>
+                                <a href="#" class="btn btn-outline" style="color: white; border-color: white;">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="mb-3">ILawyer - Legal Management System</h3>
+                        <p>A comprehensive legal practice management software with multiple modules for law firms and individual practitioners.</p>
+                        <div class="mt-3">
+                            <h6>Features:</h6>
+                            <ul>
+                                <li>Visitor Management System</li>
+                                <li>Social Media Post Scheduler</li>
+                                <li>Data Import/Export Functionality</li>
+                                <li>Office Management Dashboard</li>
+                            </ul>
+                        </div>
+                        <div class="skill-tags mt-3">
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card project-card animate-on-scroll">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-eye"></i> View Demo
+                                </a>
+                                <a href="#" class="btn btn-outline" style="color: white; border-color: white;">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="mb-3">E-commerce Platform</h3>
+                        <p>Full-featured online shopping platform with secure payment integration, user management, and admin dashboard.</p>
+                        <div class="mt-3">
+                            <h6>Features:</h6>
+                            <ul>
+                                <li>Razorpay Payment Gateway</li>
+                                <li>User Authentication & Authorization</li>
+                                <li>Product Management System</li>
+                                <li>Order Tracking & Management</li>
+                            </ul>
+                        </div>
+                        <div class="skill-tags mt-3">
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
+    <!-- Skills Section -->
+    <section class="section bg-light" id="skills">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Technical Skills</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <h3 class="mb-4">Frontend Technologies</h3>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>Bootstrap</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>jQuery</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <h3 class="mb-4">Backend & Database</h3>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>PHP</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>Laravel Framework</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>MySQL</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-name">
+                                <span>RESTful APIs</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4 animate-on-scroll">
+                <h3 class="mb-3">Tools & Others</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">Android Studio</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">XML</span>
+                    <span class="skill-tag">Java (Basic)</span>
+                    <span class="skill-tag">AI Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Education</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card education-card animate-on-scroll">
+                        <div class="education-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h4>B.Tech (Computer Science & Engineering)</h4>
+                            <p class="text-muted mb-1">Jahangirabad Institute of Engineering Technology</p>
+                            <p class="text-muted mb-1">Barabanki, Uttar Pradesh</p>
+                            <p class="text-primary"><i class="far fa-calendar me-1"></i>October 2024 - July 2027</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card education-card animate-on-scroll">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h4>Diploma in Computer Science & Engineering - 72.82%</h4>
+                            <p class="text-muted mb-1">T.G.B.G Polytechnic</p>
+                            <p class="text-muted mb-1">Shravasti, Uttar Pradesh</p>
+                            <p class="text-primary"><i class="far fa-calendar me-1"></i>September 2021 – October 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Certificates</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <div class="d-flex align-items-start">
+                            <div class="education-icon me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4>PHP Laravel Internship</h4>
+                                <p>Successfully completed a 6-month internship with PHP Laravel organized by EuCoders Technologies (P) Ltd Lucknow</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card animate-on-scroll">
+                        <div class="d-flex align-items-start">
+                            <div class="education-icon me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4>Android App Development Training</h4>
+                                <p>Successfully completed a 45-day summer training with Android App Development organized by DigiCoders Technologies (P) Ltd Lucknow</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2 style="color: white;">Get In Touch</h2>
+                <div class="underline" style="background: white;"></div>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h5>Location</h5>
+                        <p>Lucknow, India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h5>Email</h5>
+                        <p>pankajmaurya24042003@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div>
+                        <h5>LinkedIn</h5>
+                        <p>pankaj-maurya-7b11b6286</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item animate-on-scroll">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h5>GitHub</h5>
+                        <p>Pankaj933</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 animate-on-scroll">
+                <a href="mailto:pankajmaurya24042003@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 class="mb-3">Pankaj Maurya</h3>
+            <p class="mb-4">Full Stack Laravel Developer | Web Application Specialist</p>
+            
+            <div class="social-links">
+                <a href="mailto:pankajmaurya24042003@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/pankaj-maurya-7b11b6286" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Pankaj933" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" title="Resume">
+                    <i class="fas fa-file-alt"></i>
+                </a>
+            </div>
+            
+            <p class="mt-4">&copy; 2025 Pankaj Maurya. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> and <i class="fas fa-code"></i></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const checkScroll = () => {
+            animateOnScrollElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                    
+                    // Animate skill bars
+                    if (element.querySelector('.skill-progress')) {
+                        const skillBars = element.querySelectorAll('.skill-progress');
+                        skillBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            bar.style.width = width + '%';
+                        });
+                    }
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navBar = document.querySelector('.nav-bar');
+            if (window.scrollY > 50) {
+                navBar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                navBar.style.padding = '0.7rem 0';
+            } else {
+                navBar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                navBar.style.padding = '1rem 0';
+            }
+        });
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Floating shapes animation enhancement
+        document.querySelectorAll('.shape').forEach(shape => {
+            shape.addEventListener('mouseover', () => {
+                shape.style.transform = 'scale(1.2)';
+            });
+            
+            shape.addEventListener('mouseout', () => {
+                shape.style.transform = '';
+            });
+        });
+        
+        // Project card hover effect enhancement
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
